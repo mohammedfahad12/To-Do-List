@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <style>
+      /* styles for the to-do list */
+      #todo-list {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        box-shadow: 2px 2px 8px #ccc;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      form {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      #todo-input {
+        width: 70%;
+        padding: 10px;
+        border-radius: 5px 0 0 5px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+      button[type="submit"] {
+        width: 30%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+      }
+      .todo-item {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 1px 1px 4px #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="todo-list">
+      <h1>To-Do List</h1>
+      <form onsubmit="addTodo(); return false;">
+        <input type="text" id="todo-input" placeholder="Add new item...">
+        <button type="submit">Add</button>
+      </form>
+      <ul id="todo-items">
+        <!-- to-do items will be added here -->
+      </ul>
+    </div>
+    
+    <script>
+      // add to-do item to the list
+      function addTodo() {
+        let input = document.getElementById("todo-input");
+        let todo = input.value;
+        if (todo) {
+          let items = document.getElementById("todo-items");
+          let item = document.createElement("li");
+          item.classList.add("todo-item");
+          item.innerHTML = todo;
+          items.appendChild(item);
+          input.value = "";
+        }
+      }
+    </script>
+  </body>
+</html>
